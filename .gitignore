@@ -1,2 +1,4 @@
 node_modules
 PrivateS3AutoUpdaterExample
+.DS_Store
+.envrc

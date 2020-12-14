@@ -1,6 +1,6 @@
 const { version } = require('./package.json')
 
-const baseConfig = {
+module.exports = {
   productName: 'Private S3 AutoUpdater Example',
   appId: 'com.github.k3nt0w.privates3autoupdaterexample',
   directories: {
@@ -26,18 +26,16 @@ const baseConfig = {
     ]
   },
   npmArgs: ['--version=10.0.0-beta.1', '--force-abi=82'],
-  extends: null
+  extends: null,
+  publish: {
+    provider: 's3',
+    bucket: 'private-s3-electron-auto-updater-test',
+    region: 'ap-northeast-1',
+    acl: 'private',
+    path: 'application'
+  }
 }
 
-const publishS3 = {
-  provider: 's3',
-  bucket: 'private-s3-electron-auto-updater-test',
-  region: 'ap-northeast-1',
-  acl: 'private',
-  path: 'application'
-}
 
-module.exports = {
-  ...baseConfig,
-  publish: process.env.IS_LOCAL ? publishS3 : undefined
-}
+
+

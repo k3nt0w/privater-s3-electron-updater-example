@@ -1,21 +1,21 @@
 {
   "name": "private-s3-electron-updater-example",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "main.js",
   "description": "private s3 electron updater example project",
   "author": "Kento Watanabe",
   "scripts": {
     "start": "electron .",
-    "build:local": "cross-env IS_LOCAL=true yarn electron-builder --mac --config electron-builder.js --publish always",
+    "build:mac": "yarn electron-builder --mac --config electron-builder.js --publish never",
     "release:mac": "yarn electron-builder --mac --config electron-builder.js --publish always",
-    "release:win": "yarn electron-builder --win --config electron-builder.js --publish always",
-    "publish": "build -p always"
+    "release:win": "yarn electron-builder --win --config electron-builder.js --publish always"
   },
   "devDependencies": {
     "electron": "10.0.0",
     "electron-builder": "22.9.1"
   },
   "dependencies": {
+    "aws4": "^1.11.0",
     "cross-env": "7.0.3",
     "electron-log": "4.3.0",
     "electron-updater": "4.3.5"
